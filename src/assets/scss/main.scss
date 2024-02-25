@@ -1,4 +1,9 @@
-body{
-    position: relative;
-    background: #ccc;
+@import "mixins";
+@import "fonts";
+@import "variables";
+
+body {
+  position: relative;
+  font-family: $font-family;
+  background: #fff;
 }

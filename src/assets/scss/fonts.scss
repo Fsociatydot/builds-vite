@@ -1,0 +1,13 @@
+@include font-face(
+  "EuclidSquare",
+  "../fonts/EuclidSquare-Regular",
+  400,
+  normal
+);
+@include font-face("EuclidSquare", "../fonts/EuclidSquare-Medium", 500, normal);
+@include font-face(
+  "EuclidSquare",
+  "../fonts/EuclidSquare-SemiBold",
+  600,
+  normal
+);

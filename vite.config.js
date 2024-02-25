@@ -1,6 +1,9 @@
 import checker from 'vite-plugin-checker'
 import VitePluginBrowserSync from 'vite-plugin-browser-sync'
-import { qrcode } from 'vite-plugin-qrcode';
+import path from 'path'
+import { qrcode } from 'vite-plugin-qrcode'
+
+console.log(path.resolve(__dirname, './src/assets'))
 
 export default {
   plugins: [
@@ -15,6 +18,28 @@ export default {
       },
     }),
      VitePluginBrowserSync(),
-    qrcode()
+    qrcode(),
   ],
+  resolve: {
+    alias: {
+        '@': path.resolve(__dirname, './src/assets')
+    }
+  },
+  Host: {
+    rollupOptions: {
+        input: {
+            main: path.resolve(__dirname, 'index.html'),
+            login: path.resolve(__dirname, 'login/index.html'),
+        }
+    }
+  },
+  Build: {
+    rollupOptions: {
+        input: {
+            main: path.resolve(__dirname, 'index.html'),
+            login: path.resolve(__dirname, 'login/index.html'),
+        }
+    }
+  }
+
 }
