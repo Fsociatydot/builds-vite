@@ -2,7 +2,8 @@
   "extends": [
     "stylelint-config-standard",
     "stylelint-config-standard-scss",
-    "stylelint-config-rational-order"
+    "stylelint-config-rational-order",
+    "stylelint-prettier"
   ],
   "plugins": ["stylelint-order", "stylelint-scss"]
 }
