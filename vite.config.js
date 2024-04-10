@@ -21,11 +21,12 @@ export default {
     qrcode(),
     handlebars({
       context: {
-        title: "Техноберинг",
+        title: "",
       },
       partialDirectory: path.resolve(__dirname, "./src/assets/partials"),
     }),
   ],
+  base: "",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src/assets"),
@@ -57,10 +58,11 @@ export default {
         assetFileNames: (assetInfo) => {
           let extType = assetInfo.name.split(".").at(1)
           if (/png|jpe?g|svg|gif|tiff|bmp|webp|ico/i.test(extType)) {
-            console.log(assetInfo)
             extType = "img"
           } else if (/ttf|woff|woff2/i.test(extType)) {
             extType = "fonts"
+          } else if (/css/i.test(extType)) {
+            extType = "css"
           }
           return `assets/${extType}/[name][extname]`
         },
