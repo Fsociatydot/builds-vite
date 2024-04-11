@@ -22,8 +22,18 @@ export default {
     handlebars({
       context: {
         title: "",
+        navigation: [
+          {
+            name: "1",
+          },
+          {
+            name: "2",
+          },
+        ],
       },
       partialDirectory: path.resolve(__dirname, "./src/assets/partials"),
+      reloadOnPartialChange: true,
+      reload: true,
     }),
   ],
   base: "",
@@ -42,7 +52,7 @@ export default {
       },
     },
   },
-  Build: {
+  build: {
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, "index.html"),
@@ -50,10 +60,6 @@ export default {
         login: path.resolve(__dirname, "login/index.html"),
         uikit: path.resolve(__dirname, "uikit/index.html"),
       },
-    },
-  },
-  build: {
-    rollupOptions: {
       output: {
         assetFileNames: (assetInfo) => {
           let extType = assetInfo.name.split(".").at(1)
